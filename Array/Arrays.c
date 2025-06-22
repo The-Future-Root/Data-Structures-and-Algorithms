@@ -27,3 +27,44 @@ void deleteElement(int arr[], int *size, int pos) {
     (*size)--;
     printf("Element deleted successfully.\n");
 }
+
+int main() {
+    int arr[100] = {10, 20, 30, 40, 50};
+    int size = 5;
+    int choice, pos, val;
+
+    while (1) {
+        printf("\n--- Array Operations ---\n");
+        printf("1. Traverse\n2. Insert\n3. Delete\n4. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                traverseArray(arr, size);
+                break;
+            case 2:
+                printf("Enter position (0 to %d) and value to insert: ", size);
+                scanf("%d %d", &pos, &val);
+                if (pos >= 0 && pos <= size) {
+                    insertElement(arr, &size, pos, val);
+                } else {
+                    printf("Invalid position.\n");
+                }
+                break;
+            case 3:
+                printf("Enter position (0 to %d) to delete: ", size - 1);
+                scanf("%d", &pos);
+                if (pos >= 0 && pos < size) {
+                    deleteElement(arr, &size, pos);
+                } else {
+                    printf("Invalid position.\n");
+                }
+                break;
+            case 4:
+                return 0;
+            default:
+                printf("Invalid choice.\n");
+        }
+    }
+}
