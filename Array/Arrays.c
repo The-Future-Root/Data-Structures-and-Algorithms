@@ -18,3 +18,12 @@ void insertElement(int arr[], int *size, int pos, int val) {
     (*size)++;
     printf("Element inserted successfully.\n");
 }
+
+// Delete an element from a given position in the array
+void deleteElement(int arr[], int *size, int pos) {
+    for (int i = pos; i < *size - 1; i++) {
+        arr[i] = arr[i + 1];  // Shift elements to the left
+    }
+    (*size)--;
+    printf("Element deleted successfully.\n");
+}
