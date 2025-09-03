@@ -69,4 +69,7 @@ class HashMap:
 
         for char in key_string:
             hash_result = (hash_result * 31 + ord(char)) % self.capacity
+
+        return hash_result
+
         
